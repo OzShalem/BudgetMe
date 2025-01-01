@@ -24,7 +24,6 @@ class BudgetPlannerAI {
     constructor() {
         this.client = new OpenAI({
             baseURL: endpoint,
-            apiKey: "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",
             dangerouslyAllowBrowser: true
         });
     }

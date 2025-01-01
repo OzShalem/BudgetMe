@@ -104,7 +104,6 @@ const BudgetPlannerDisplay = () => {
 
             {response && (
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    {/* Budget Summary */}
                     <div className="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-300">
                         <h2 className="text-lg font-semibold text-gray-800 mb-4">Budget Summary</h2>
                         <div className="flex justify-between mb-2">
@@ -121,7 +120,6 @@ const BudgetPlannerDisplay = () => {
                         </div>
                     </div>
 
-                    {/* Savings Graph */}
                     <div className="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-300">
                         <h2 className="text-lg font-semibold text-gray-800 mb-4">Savings Plan</h2>
                         {generateGraphData() && (
@@ -146,7 +144,6 @@ const BudgetPlannerDisplay = () => {
                         )}
                     </div>
 
-                    {/* Tips */}
                     <div className="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-300">
                         <h2 className="text-lg font-semibold text-gray-800 mb-4">Tips</h2>
                         <ul className="list-disc pl-5 space-y-2 text-gray-700">
@@ -156,7 +153,6 @@ const BudgetPlannerDisplay = () => {
                         </ul>
                     </div>
 
-                    {/* Action Plan */}
                     <div className="col-span-3 bg-gray-100 p-6 rounded-lg shadow-md border border-gray-300">
                         <h2 className="text-lg font-semibold text-gray-800 mb-4">Action Plan</h2>
                         <p className="text-gray-700">{response.action_plan}</p>
