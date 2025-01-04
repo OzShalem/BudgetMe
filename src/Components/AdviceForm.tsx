@@ -1,9 +1,7 @@
+import React from "react";
 
-
-const AdviceForm = () => {
-    return (
-        <div>AdviceForm</div>
-    )
+function AdviceForm() {
+  return <div>AdviceForm</div>;
 }
 
-export default AdviceForm
+export default AdviceForm;
