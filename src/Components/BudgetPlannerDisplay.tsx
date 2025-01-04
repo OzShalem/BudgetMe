@@ -41,7 +41,7 @@ interface BudgetPlan {
 
 const BudgetPlannerDisplay = ({ budgetPlan: { recommended_budget, tips, action_plan, savings_plan } }: { budgetPlan: BudgetPlan }) => {
     const generateGraphData = () => {
-        if (!savings_plan) return null;
+        // if (!savings_plan) return null;
 
         const { months, monthly_savings } = savings_plan;
         const labels = Array.from({ length: months }, (_, i) => `Month ${i + 1}`);
