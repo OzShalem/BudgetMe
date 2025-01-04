@@ -97,9 +97,9 @@ class BudgetPlannerAI {
             const parsedResponse: BudgetPlan = JSON.parse(cleanedContent);
 
 
-            const recommendedBudget = parsedResponse.recommended_budget;
-            const tips = parsedResponse.tips;
-            const actionPlan = parsedResponse.action_plan;
+            // const recommendedBudget = parsedResponse.recommended_budget;
+            // const tips = parsedResponse.tips;
+            // const actionPlan = parsedResponse.action_plan;
 
             // console.log(cleanedContent);
 

@@ -76,6 +76,7 @@ const BudgetPlanner = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
+        setDisplay(true);
         setPlan({
             recommended_budget: {
                 essentials: "",
@@ -122,6 +123,7 @@ const BudgetPlanner = () => {
             console.error("Error generating budget plan:", error);
         } finally {
             setLoading(false);
+
         }
     };
 

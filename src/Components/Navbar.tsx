@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FcMoneyTransfer } from "react-icons/fc";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 

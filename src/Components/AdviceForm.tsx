@@ -1,8 +1,6 @@
-import React from 'react'
 
-type Props = {}
 
-const AdviceForm = (props: Props) => {
+const AdviceForm = () => {
     return (
         <div>AdviceForm</div>
     )
