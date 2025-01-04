@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+BudgetMe - Personal Budget Planner - https://budget-6f33iru8o-oz-shalems-projects.vercel.app/
+BudgetMe is a modern and user-friendly web application designed to help individuals create personalized budget plans. By analyzing user-provided financial and lifestyle data, the app generates actionable recommendations, a detailed savings plan, and an interactive cash flow matrix to help users achieve their financial goals effectively.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Landing Page: A sleek and welcoming homepage introducing the app's purpose and features.
+![image](https://github.com/user-attachments/assets/1a7b6004-0b4a-4742-80f8-bb184dbf7b56)
+Step-by-Step Form: An intuitive multi-step form to collect user data, including salary, spendings, financial goals, and lifestyle preferences.
+![image](https://github.com/user-attachments/assets/636fcffd-f5b4-4e4c-8e8c-df918102e854)
 
-Currently, two official plugins are available:
+AI-Powered Budget Plan: Leverages AI to generate personalized financial recommendations, savings tips, and an action plan.
+![Screenshot 2025-01-03 173718](https://github.com/user-attachments/assets/9753ba22-254b-4611-998c-dc62fc2be1cc)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Visual Insights: Includes an interactive savings graph and a comprehensive cash flow table to track progress.
+Responsive Design: Fully optimized for desktop and mobile devices with a clean and professional look.
+How It Works
+Fill Out Your Information: Complete a quick multi-step form to provide your financial details and goals.
+Generate a Plan: Submit the form to generate a custom budget plan powered by AI.
+Visualize Your Savings: View your personalized savings graph, budget breakdown, and actionable tips.
+Track Cash Flow: Use the cash flow matrix to monitor monthly income and expenses over time.
+Screenshots
+Landing Page
 
-## Expanding the ESLint configuration
+Step-by-Step Form
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Generated Budget Plan
 
-- Configure the top-level `parserOptions` property like this:
+Tech Stack
+Frontend: React, TypeScript, Tailwind CSS, Chart.js
+AI Integration: OpenAI API
+Version Control: GitHub
+Installation
+Clone the repository:
+bash
+Copy code
+git clone https://github.com/your-username/budgetme.git
+cd budgetme
+Install dependencies:
+bash
+Copy code
+npm install
+Add your OpenAI API key in the .env file.
+Start the development server:
+bash
+Copy code
+npm start
+Contribution
+Contributions are welcome! Feel free to submit issues or pull requests to improve this project.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+License
+This project is licensed under the MIT License.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Empower your financial journey with BudgetMe!
