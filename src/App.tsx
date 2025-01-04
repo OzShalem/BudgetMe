@@ -1,20 +1,20 @@
-import { Outlet, Route, Routes } from 'react-router-dom'
-import Navbar from './Components/Navbar'
-import Home from './Components/Home'
-import AdviceForm from './Components/AdviceForm'
-import AboutUs from './Components/AboutUs'
-import BudgetPlanner from './Components/BudgetPlanner'
+import { Outlet, Route, Routes } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import Home from "./Components/Home";
+import AdviceForm from "./Components/AdviceForm";
+import AboutUs from "../src/Pages/AboutUs";
+import BudgetPlanner from "./Components/BudgetPlanner";
 
 const Layout = () => {
   return (
-    <div className=''>
+    <div className="">
       <Navbar />
       <div>
         <Outlet />
       </div>
     </div>
-  )
-}
+  );
+};
 const App = () => {
   return (
     <Routes>
@@ -25,7 +25,7 @@ const App = () => {
         <Route path="AboutUs" element={<AboutUs />} />
       </Route>
     </Routes>
-  )
-}
+  );
+};
 
 export default App;
