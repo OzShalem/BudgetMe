@@ -1,4 +1,4 @@
-BudgetMe - Personal Budget Planner
+BudgetMe - Personal Budget Planner - https://budget-6f33iru8o-oz-shalems-projects.vercel.app/
 BudgetMe is a modern and user-friendly web application designed to help individuals create personalized budget plans. By analyzing user-provided financial and lifestyle data, the app generates actionable recommendations, a detailed savings plan, and an interactive cash flow matrix to help users achieve their financial goals effectively.
 
 Features
