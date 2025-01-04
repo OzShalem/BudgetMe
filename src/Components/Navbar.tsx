@@ -25,7 +25,7 @@ const Navbar = () => {
         <header className="bg-grey shadow-sm flex justify-between">
             <div className="container flex items-center justify-between py-4 md:px-6">
                 <div className="flex items-center gap-x-2 p-2 rounded-md hover:bg-gray-200">
-                    <FcMoneyTransfer className="w-6 h-6" />
+                    <img src="../public/icon.png" className="h-6 w-6" alt="" />
                     <NavLink to='/' className='text-black-500 font-[poppins] text-2xl font-bold leading-none'>BudgetMe</NavLink>
                 </div>
 

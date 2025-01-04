@@ -4,11 +4,61 @@ import BudgetPlannerAI from "../gpt";
 import BudgetPlannerDisplay from "./BudgetPlannerDisplay";
 import Cashflow from "./Cashflow";
 
-// var plannerAI = new BudgetPlannerAI();
+interface BudgetPlan {
+    recommended_budget: {
+        essentials: string;
+        savings: string;
+        discretionary: string;
+    };
+    savings_plan: {
+        months: number;
+        monthly_savings: number;
+    };
+    tips: string[];
+    action_plan: string;
+}
 
+interface SavingsPlan {
+    goal: number;
+    months: number;
+    monthly_savings: number;
+}
+
+interface CashflowProps {
+    savingsPlan: SavingsPlan;
+    monthlyExpenses: number;
+    income: number;
+}
+
+var plannerAI = new BudgetPlannerAI();
 
 const BudgetPlanner = () => {
     const [step, setStep] = useState<number>(1);
+    const [loading, setLoading] = useState(false);
+    const [savingsPlan, setSavingPlan] = useState<CashflowProps>({
+        savingsPlan: {
+            goal: 0,
+            months: 0,
+            monthly_savings: 0,
+        },
+        monthlyExpenses: 0,
+        income: 0,
+    });
+    const [plan, setPlan] = useState<BudgetPlan>({
+        recommended_budget: {
+            essentials: "",
+            savings: "",
+            discretionary: "", // You can rename this later if you switch to "wants"
+        },
+        savings_plan: {
+            monthly_savings: 0,
+            months: 0
+        },
+        tips: [],
+        action_plan: "",
+    });
+
+    const [display, setDisplay] = useState(false);
 
     // Form data state
     const [formData, setFormData] = useState({
@@ -23,28 +73,62 @@ const BudgetPlanner = () => {
         preferences: ""
     });
 
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        setPlan({
+            recommended_budget: {
+                essentials: "",
+                savings: "",
+                discretionary: "", // You can rename this later if you switch to "wants"
+            },
+            savings_plan: {
+                monthly_savings: 0,
+                months: 0
+            },
+            tips: [],
+            action_plan: "",
+        });
+
+        try {
+            const data: BudgetPlan = await plannerAI.generateBudgetPlan(formData);
+
+            // Map response to unified format if needed
+            const formattedResponse: BudgetPlan = {
+                recommended_budget: {
+                    essentials: data.recommended_budget.essentials,
+                    savings: data.recommended_budget.savings,
+                    discretionary: data.recommended_budget.discretionary,
+                },
+                savings_plan: {
+                    months: data.savings_plan?.months || 0,
+                    monthly_savings: data.savings_plan?.monthly_savings || 0,
+                },
+                tips: data.tips || [],
+                action_plan: data.action_plan || "",
+            };
+
+            setPlan(formattedResponse);
+            setSavingPlan({
+                savingsPlan: {
+                    goal: Number(formData.goal),
+                    months: Number(formData.timeline),
+                    monthly_savings: plan.savings_plan.monthly_savings,
+                },
+                monthlyExpenses: (Number(plan.recommended_budget.essentials) + Number(plan.recommended_budget.discretionary)),
+                income: Number(formData.salary),
+            });
+        } catch (error) {
+            console.error("Error generating budget plan:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log("Form Data Submitted:", formData);
-        // await plannerAI.generateBudgetPlan(formData);
-    };
-
-    //Cashflow
-    const mockResponse = {
-        savingsPlan: {
-            goal: 10000,
-            months: 24,
-            monthly_savings: 416.67,
-        },
-        monthlyExpenses: 2500,
-        income: 4000,
-    };
-
 
     // Handle navigation
     const nextStep = (): void => setStep((prev) => Math.min(prev + 1, 3));
@@ -52,8 +136,7 @@ const BudgetPlanner = () => {
 
     return (
         <>
-            <div className="container flex flex-col-reverse md:flex-row items-center justify-center mx-auto py-12 px-6 gap-8 gap-x-14">
-
+            <div className="container bg-gray-100 shadow-md flex flex-col-reverse md:flex-row items-center justify-center mx-auto my-6 py-12 px-6 gap-8 gap-x-24">
                 <div className="bg-gray-100 p-8 rounded-lg shadow-lg w-full min-w-[370px] min-h-[600px] sm:w-[500px] flex flex-col">
                     <h1 className="text-2xl font-semibold text-gray-800 mb-6">Your Budget Plan</h1>
 
@@ -274,12 +357,29 @@ const BudgetPlanner = () => {
                     />
                 </div>
             </div>
-            <BudgetPlannerDisplay />
-            <Cashflow
-                savingsPlan={mockResponse.savingsPlan}
-                monthlyExpenses={mockResponse.monthlyExpenses}
-                income={mockResponse.income}
-            />
+            {loading && (
+                <div className="flex items-center justify-center">
+                    <div className="loader animate-spin rounded-full h-12 w-12 border-t-4 border-gray-800"></div>
+                    <span>Generating</span>
+                </div>
+            )}
+
+            {display && (
+                <>
+                    <BudgetPlannerDisplay budgetPlan={plan} />
+                    <Cashflow
+                        savingsPlan={savingsPlan.savingsPlan}
+                        monthlyExpenses={savingsPlan.monthlyExpenses}
+                        income={savingsPlan.income}
+                        currency={formData.currency} />
+
+                </>
+            )}
+            {!display &&
+                <div className="h-[600px] flex justify-center items-center">
+                    <p className="text-gray-500">Fill in the form with your information to generate the budget plan</p>
+                </div>
+            }
         </>
     );
 };

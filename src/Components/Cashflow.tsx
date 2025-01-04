@@ -10,6 +10,7 @@ interface CashflowProps {
     savingsPlan: SavingsPlan;
     monthlyExpenses: number;
     income: number;
+    currency: string;
 }
 
 const Cashflow: React.FC<CashflowProps> = ({ savingsPlan, monthlyExpenses, income }) => {
@@ -53,10 +54,10 @@ const Cashflow: React.FC<CashflowProps> = ({ savingsPlan, monthlyExpenses, incom
                                         } text-gray-800`}
                                 >
                                     <td className="px-4 py-2 border-b border-gray-300">{flow.month}</td>
-                                    <td className="px-4 py-2 border-b border-gray-300">${flow.income.toLocaleString()}</td>
-                                    <td className="px-4 py-2 border-b border-gray-300">${flow.expenses.toLocaleString()}</td>
+                                    <td className="px-4 py-2 border-b border-gray-300">{flow.income.toLocaleString()}</td>
+                                    <td className="px-4 py-2 border-b border-gray-300">{flow.expenses.toLocaleString()}</td>
                                     <td className="px-4 py-2 border-b border-gray-300 text-green-600 font-bold">
-                                        ${flow.savings.toLocaleString()}
+                                        {flow.savings.toLocaleString()}
                                     </td>
                                 </tr>
                             ))}
