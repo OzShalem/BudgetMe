@@ -1,4 +1,4 @@
-import { ArrowRight, PiggyBank } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import budgetplanner from '../assets/budgetplanner.png'
 
 export default function BudgetHero() {

@@ -1,5 +1,3 @@
-import Navbar from '../components/navbar'
-import Footer from '../components/footer'
 import { Lightbulb, DollarSign, PiggyBank, TrendingDown, ShoppingCart } from 'lucide-react'
 
 const tips = [

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent } from "react";
-import { DollarSign, ArrowRight, ArrowLeft } from "lucide-react";
+import { DollarSign, ArrowLeft } from "lucide-react";
 
 // Define the form data structure
 export interface FormData {

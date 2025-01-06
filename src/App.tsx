@@ -2,6 +2,7 @@ import { Outlet, Route, Routes } from 'react-router-dom'
 // @ts-ignore
 import BudgetPlanner from './pages/budget-planner'
 import Home from './pages/home'
+// @ts-ignore
 import Navbar from './components/navbar'
 import Tips from './pages/tips'
 import Reviews from './pages/reviews'
