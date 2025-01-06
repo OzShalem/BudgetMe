@@ -1,57 +1,75 @@
-import { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { NavLink } from "react-router-dom";
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Menu, X } from 'lucide-react'
 import icon from '../assets/icon.png';
 
-interface NavLinkItem {
-    to: string,
-    label: string
-};
+export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false)
 
-const navLinks: NavLinkItem[] = [
-    { to: "/", label: "Home" },
-    { to: "/BudgetPlanner", label: "Budget Planner" },
-    { to: "/Tips", label: "Tips" },
-    { to: "/Reviews", label: "Reviews" },
-    { to: "/Download", label: "Download" },
-]
-
-const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-
+    const navItems = [
+        { name: 'Home', path: '/' },
+        { name: 'Budget Planner', path: '/planner' },
+        { name: 'Tips', path: '/tips' },
+        { name: 'Reviews', path: '/reviews' },
+        { name: 'Download', path: '/download' }
+    ]
 
     return (
-        <header className="bg-grey shadow-sm flex justify-between">
-            <div className="container flex items-center justify-between py-4 md:px-6">
-                <div className="flex items-center gap-x-2 p-2 rounded-md hover:bg-gray-200">
-                    <img src={icon} className="h-6 w-6" alt="" />
-                    <NavLink to='/' className='text-black-500 font-[poppins] text-2xl font-bold leading-none'>BudgetMe</NavLink>
+        <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16">
+                    {/* Logo */}
+                    <Link to="/" className="flex items-center">
+                        <img className='w-8 h-8 mr-2' src={icon} alt="" />
+                        <span className="text-xl font-bold">BudgetMe</span>
+                    </Link>
+
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex items-center space-x-8">
+                        {navItems.map((item) => (
+                            <Link
+                                key={item.name}
+                                to={item.path}
+                                className="text-sm font-medium transition-colors hover:text-[#00C853] text-gray-600"
+                            >
+                                {item.name}
+                            </Link>
+                        ))}
+                    </div>
+
+                    {/* Mobile Menu Button */}
+                    <button
+                        className="md:hidden"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {isOpen ? (
+                            <X className="h-6 w-6 text-gray-600" />
+                        ) : (
+                            <Menu className="h-6 w-6 text-gray-600" />
+                        )}
+                    </button>
                 </div>
 
-                <nav className="hidden md:flex gap-8 verylarge:pr-32">
-                    {navLinks.map(link => (
-                        <NavLink key={link.to} to={link.to} className='text-gray-700 font-[Roboto] hover:text-green-600'>{link.label}</NavLink>
-                    ))}
-                </nav>
-
+                {/* Mobile Navigation */}
                 {isOpen && (
-                    <nav className="absolute bg-white top-16 left-0 w-full shadow-lg z-10 transition-all duration-300 ease-in-out">
-                        {navLinks.map(link => (
-                            <NavLink key={link.to} to={link.to} className='block py-2 px-4 hover:bg-gray-100 font-[Roboto]'>{link.label}</NavLink>
-                        ))}
-                    </nav>
+                    <div className="md:hidden py-4">
+                        <div className="flex flex-col space-y-4">
+                            {navItems.map((item) => (
+                                <Link
+                                    key={item.name}
+                                    to={item.path}
+                                    onClick={() => setIsOpen(false)}
+                                    className="text-sm font-medium transition-colors hover:text-[#00C853] text-gray-600"
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
                 )}
-                <div className="hidden md:block"></div>
-
             </div>
-            <div className="md:hidden p-6 ">
-                <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 hover:text-green-600">
-                    <GiHamburgerMenu />
-                </button>
-            </div>
-        </header>
+        </nav>
     )
 }
 
-export default Navbar

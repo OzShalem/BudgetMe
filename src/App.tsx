@@ -1,28 +1,34 @@
 import { Outlet, Route, Routes } from 'react-router-dom'
-import Navbar from './Components/Navbar'
-import Home from './Components/Home'
-import AdviceForm from './Components/AdviceForm'
-import AboutUs from './Components/AboutUs'
-import BudgetPlanner from './Components/BudgetPlanner'
+// @ts-ignore
+import BudgetPlanner from './pages/budget-planner'
+import Home from './pages/home'
+import Navbar from './components/navbar'
+import Tips from './pages/tips'
+import Reviews from './pages/reviews'
+import { Download } from 'lucide-react'
+import Footer from './components/footer'
+
 
 const Layout = () => {
   return (
-    <div className=''>
+    <div>
       <Navbar />
       <div>
         <Outlet />
       </div>
+      <Footer />
     </div>
   )
 }
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="/BudgetPlanner" element={<BudgetPlanner />} />
-        <Route path="Advice" element={<AdviceForm />} />
-        <Route path="AboutUs" element={<AboutUs />} />
+      <Route path='/' element={<Layout />}>
+        <Route index path="/" element={<Home />} />
+        <Route path="/planner" element={<BudgetPlanner />} />
+        <Route path="/tips" element={<Tips />} />
+        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/download" element={<Download />} />
       </Route>
     </Routes>
   )
