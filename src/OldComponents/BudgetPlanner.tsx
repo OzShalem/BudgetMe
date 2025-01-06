@@ -30,7 +30,7 @@ interface CashflowProps {
     income: number;
 }
 
-var plannerAI = new BudgetPlannerAI();
+const plannerAI = new BudgetPlannerAI();
 
 const BudgetPlanner = () => {
     const [step, setStep] = useState<number>(1);

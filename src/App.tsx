@@ -18,8 +18,8 @@ const Layout = () => {
       </div>
       <Footer />
     </div>
-  )
-}
+  );
+};
 const App = () => {
   return (
     <Routes>
@@ -31,7 +31,7 @@ const App = () => {
         <Route path="/download" element={<Download />} />
       </Route>
     </Routes>
-  )
-}
+  );
+};
 
 export default App;
