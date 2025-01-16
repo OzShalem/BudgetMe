@@ -1,8 +1,8 @@
-import FAQ from '../components/FAQ'
-import Features from '../components/Features'
-import Hero from '../components/Hero'
+import FAQ from '../components/faq'
+import Features from '../components/features'
+import Hero from '../components/hero'
 import LandingCF from '../components/landingcf'
-import Testimonials from '../components/Testimonials'
+import Testimonials from '../components/testimonials'
 
 
 const LandingPage = () => {
