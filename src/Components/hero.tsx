@@ -1,12 +1,12 @@
-import { ArrowRight, BarChart2, PieChart, Wallet } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { ArrowRight, BarChart2, PieChart, Wallet } from "lucide-react"
+import { Link } from "react-router-dom"
 
-export default function Hero() {
+
+const Hero = () => {
     return (
-        <div className="relative overflow-hidden bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+        <section className="relative overflow-hidden bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2 py-12 lg:py-32">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left Column - Content */}
                     <div className="space-y-8">
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
                             A Smarter Way to Manage Expenses with{' '}
@@ -18,7 +18,7 @@ export default function Hero() {
                         </p>
                         <div className="flex flex-wrap gap-4">
                             <Link
-                                to="/planner"
+                                to="/c"
                                 className="inline-flex items-center px-6 py-3 rounded-lg bg-[#00C853] text-white font-medium hover:bg-[#00B548] transition-colors"
                             >
                                 Create Your Plan
@@ -33,7 +33,6 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* Right Column - Animated Icons */}
                     <div className="relative">
                         <div className="absolute inset-0 bg-[#E8F5E9] rounded-full blur-3xl opacity-30" />
                         <div className="relative grid grid-cols-2 gap-6">
@@ -57,7 +56,8 @@ export default function Hero() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 
+export default Hero
