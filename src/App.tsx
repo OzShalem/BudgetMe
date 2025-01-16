@@ -6,7 +6,6 @@ const App = () => {
     <div>
       <Navbar />
       <div>
-
         <LandingPage />
       </div>
     </div>
