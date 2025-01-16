@@ -1,4 +1,4 @@
-import FAQ from '../components/faq'
+import FAQ from '../components/faq.tsx'
 import Features from '../components/features'
 import Hero from '../components/hero'
 import LandingCF from '../components/landingcf'
