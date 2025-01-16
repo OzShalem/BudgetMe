@@ -25,3 +25,8 @@ dist-ssr
 
 # Environment variables
 .env
+
+# temp
+components
+pages
+routes
