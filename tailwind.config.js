@@ -20,6 +20,9 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
         },
+        backgroundImage: {
+          'custom-conic': 'conic-gradient(from 90deg, #ecfdf5, #86efac, #4ade80, #16a34a)',
+        },
       },
       plugins: [],
     }

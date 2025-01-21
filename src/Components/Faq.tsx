@@ -34,7 +34,7 @@ const FAQ = () => {
                 <h2 className=" text-center font-bold text-3xl mb-12">Frequently Asked Questions</h2>
                 <div className='space-y-4 '>
                     {faqs.map((faq, index) => (
-                        <div className='border-b border-gray-200 pb-4'>
+                        <div key={index} className='border-b border-gray-200 pb-4'>
                             <button
                                 className='flex justify-between items-center text-left w-full'
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}

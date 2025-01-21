@@ -34,16 +34,16 @@ const Testimonials = () => {
                 <h2 className="font-bold text-3xl">What Our Users Say</h2>
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 max-w-7xl mx-auto gap-x-8'>
-                {testimonials.map((review) => (
-                    <div className='px-8 py-10 mb-4 lg:py-4 lg:mb-2 shadow-sm hover:shadow-md rounded-md bg-white'>
+                {testimonials.map((review, index) => (
+                    <div key={index} className='px-8 py-10 mb-4 lg:py-4 lg:mb-2 shadow-sm hover:shadow-md rounded-md bg-white'>
                         <div className='flex'>
                             <img className='h-20 w-20 rounded-full object-cover mr-2 mb-4' src={review.image} alt="" />
                             <div>
                                 <h4 className="font-semibold text-gray-800">{review.name}</h4>
                                 <p className="text-gray-500 text-sm mb-2">{review.role}</p>
                                 <div className='flex'>
-                                    {[...Array(review.rating)].map(() => (
-                                        <Star className='text-yellow-400 fill-current h-5 w-5 mb-2' />
+                                    {[...Array(review.rating)].map((_, i) => (
+                                        <Star key={i} className='text-yellow-400 fill-current h-5 w-5 mb-2' />
                                     ))}
                                 </div>
                             </div>
