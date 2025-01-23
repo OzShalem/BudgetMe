@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import logo from '../assets/icon.png';
 import { Menu, X } from 'lucide-react';
-import { NavLinkItem } from '../Routes/routes'
+import { NavLinkItem } from '../Routes/Routes'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
