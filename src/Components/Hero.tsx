@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 const Hero = () => {
     return (
-        <section className="relative overflow-hidden bg-white">
+        <section className="relative overflow-hidden bg-white min-h-[40rem]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2 py-12 lg:py-32">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-8">

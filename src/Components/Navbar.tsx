@@ -1,18 +1,18 @@
-import { Link } from 'react-router-dom';
-import { NavItems } from '../types';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import logo from '../assets/icon.png';
 import { Menu, X } from 'lucide-react';
+import { NavLinkItem } from '../Routes/routes'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const navItems: NavItems[] = [
-        { name: "Home", path: "/" },
-        { name: "Budget Planner", path: "/planner" },
-        { name: "Tips", path: "/tips" },
-        { name: "Reviews", path: "/reviews" },
-        { name: "Download", path: "/download" },
+    const navLinks: NavLinkItem[] = [
+        { label: "Home", to: "/" },
+        { label: "Planner", to: "/Planner" },
+        { label: "Tips", to: "/Tips" },
+        { label: "Reviews", to: "/Reviews" },
+        { label: "Download", to: "/Download" },
     ];
 
     return (
@@ -20,19 +20,19 @@ const Navbar = () => {
             <div className='max-w-7xl mx-auto px-3 sm:px-6 lg-px-8'>
                 <div className='flex items-center justify-between h-16'>
                     {/* logo */}
-                    <Link to='/' className='flex items-center'>
+                    <NavLink to='/' className='flex items-center'>
                         <img src={logo} alt="" className='w-8 h-8 mr-2' />
                         <span className='text-xl font-bold'>BudgetMe</span>
-                    </Link>
+                    </NavLink>
 
                     {/* Desktop Links */}
                     <div className='hidden md:flex space-x-8'>
-                        {navItems.map(item => (
-                            <Link className='text-sm font-medium text-gray-600 hover:text-[#00C853]'
-                                key={item.name}
-                                to={item.path}>{
-                                    item.name}
-                            </Link>
+                        {navLinks.map(link => (
+                            <NavLink className='text-sm font-medium text-gray-600 hover:text-[#00C853]'
+                                key={link.label}
+                                to={link.to}>{
+                                    link.label}
+                            </NavLink>
                         ))}
                     </div>
 
@@ -48,13 +48,14 @@ const Navbar = () => {
                 {isOpen &&
                     <div className='md:hidden py-4'>
                         <div className='flex flex-col space-y-4'>
-                            {navItems.map(item => (
-                                <Link
-                                    key={item.name}
-                                    to={item.path}
+                            {navLinks.map(link => (
+                                <NavLink
+                                    key={link.label}
+                                    to={link.to}
                                     onClick={() => setIsOpen(false)}
                                     className='text-sm font-medium text-gray-600 hover:text-[#00c853]'
-                                >{item.name}</Link>
+                                >{link.label}
+                                </NavLink>
                             ))}
                         </div>
                     </div>}

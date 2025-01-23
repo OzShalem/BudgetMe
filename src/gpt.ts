@@ -1,41 +1,10 @@
 import OpenAI from "openai";
+import { BudgetPlan, FormData } from "./types";
 import.meta.env;
-// import * as dotenv from 'dotenv';
-// dotenv.config();
 
-// Define environment variables or use a hardcoded token for testing
-// const token = process.env["GITHUB_TOKEN"];
 const endpoint = "https://models.inference.ai.azure.com";
 const modelName = "gpt-4o";
 
-// Define the form data type for consistency
-interface FormData {
-    salary: string;
-    currency: string;
-    spendings: string;
-    living: string;
-    goal: string;
-    target: string;
-    timeline: string;
-    job: string;
-    preferences: string;
-}
-
-interface BudgetPlan {
-    recommended_budget: {
-        essentials: string;
-        savings: string;
-        discretionary: string; // Flexible spending, rename if needed
-    };
-    savings_plan: {
-        months: number;
-        monthly_savings: number;
-    };
-    tips: string[];
-    action_plan: string;
-}
-
-// Define the budget planner class
 class BudgetPlannerAI {
     private client: OpenAI;
 
@@ -43,7 +12,7 @@ class BudgetPlannerAI {
         this.client = new OpenAI({
             baseURL: endpoint,
             apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-            dangerouslyAllowBrowser: true // Replace with your actual API key
+            dangerouslyAllowBrowser: true
         });
     }
 

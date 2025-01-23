@@ -6,14 +6,13 @@ export default {
   ],
   theme: {
     extend: {
-      screens: {
-        'verylarge': '1900px', // Example: 1400px and above
-        'verysmall': '300px', // Example: 1400px and above
-      },
       animation: {
         'float-slow': 'float 6s ease-in-out infinite',
         'float-medium': 'float 5s ease-in-out infinite',
         'float-fast': 'float 4s ease-in-out infinite',
+        'bounce-slow': 'bounce 0.65s infinite',
+        'bounce-medium': 'bounce 0.7s infinite',
+        'bounce-fast': 'bounce 0.75s infinite',
       },
       keyframes: {
         float: {

@@ -1,15 +1,9 @@
-
-import Navbar from "./Components/Navbar"
-import LandingPage from "./Pages/landingpage";
+import { router } from "./Routes/routes";
+import { RouterProvider } from "react-router-dom";
 
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      <div>
-        <LandingPage />
-      </div>
-    </div>
+    <RouterProvider router={router} />
   );
 };
 
