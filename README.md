@@ -3,7 +3,8 @@ BudgetMe is a modern and user-friendly web application designed to help individu
 
 Features
 Landing Page: A sleek and welcoming homepage introducing the app's purpose and features.
-![image](https://github.com/user-attachments/assets/1a7b6004-0b4a-4742-80f8-bb184dbf7b56)
+![image](https://github.com/user-attachments/assets/641f81fe-5d82-4c69-a99d-791fe15f3e96)
+
 Step-by-Step Form: An intuitive multi-step form to collect user data, including salary, spendings, financial goals, and lifestyle preferences.
 ![image](https://github.com/user-attachments/assets/636fcffd-f5b4-4e4c-8e8c-df918102e854)
 
